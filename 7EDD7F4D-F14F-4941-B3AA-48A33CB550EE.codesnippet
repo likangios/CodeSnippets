@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>MyButtons</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>for (int i=0; i&lt;cout; i++) {
+
+        UIButton  *buttonOne = [UIButton buttonWithType:UIButtonTypeCustom];
+
+        buttonOne.frame = CGRectMake(i%4*74, i/4*54, 64, 44);
+
+        buttonOne.tag = i+1;
+
+        [buttonOne setTitle:[NSString stringWithFormat:@"%d",i] forState:UIControlStateNormal];
+        [buttonOne setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        buttonOne.backgroundColor = [UIColor yellowColor];
+        [buttonOne addTarget:self action:@selector(buttonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:buttonOne];}
+
+
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>7EDD7F4D-F14F-4941-B3AA-48A33CB550EE</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>创建有规律的n个按钮</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My Buttons  Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

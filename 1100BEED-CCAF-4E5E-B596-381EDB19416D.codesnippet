@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>lazyLoad</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string># pragma mark -  懒加载
+- (&lt;#BMKLocationService *#&gt;)locservice{
+    if (!&lt;#_locservice#&gt;) {
+        &lt;#BMKLocationService *#&gt;   * locService = [[&lt;#BMKLocationService *#&gt; alloc] init];
+        locService.delegate  = self;
+    }
+
+    return &lt;#_locservice#&gt;;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1100BEED-CCAF-4E5E-B596-381EDB19416D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>懒加载</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My   懒加载  Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

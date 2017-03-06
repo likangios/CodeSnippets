@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>MYScrollViewAndPageControl</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> UIScrollView  *  myScrollView  = [[UIScrollView alloc] init];
+    
+    myScrollView.frame  = CGRectMake(0, 0, WIDTH, HEIGHT);
+     myScrollView.contentSize  = CGSizeMake(WIDTH* 5, HEIGHT);
+   
+    myScrollView.pagingEnabled  = YES;
+
+    for (int  i = 0; i &lt; 5 ; i ++) {
+        UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.jpg",i+1] ];
+        UIImageView  * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH * i, 0, WIDTH, HEIGHT)];
+        
+        imageView.image  = image;
+        [myScrollView addSubview:imageView];
+        
+        if (i == 4) {
+            imageView.userInteractionEnabled  = YES;
+            UIButton  * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            btn.frame  = CGRectMake(WIDTH *4+200, 430, WIDTH/3, HEIGHT/8);
+            btn.backgroundColor  = [UIColor yellowColor];
+            [btn setTitle:@"点击进入" forState:UIControlStateNormal];
+            [btn addTarget:self action:@selector(go:) forControlEvents:UIControlEventTouchUpInside];
+           
+            [btn  setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [myScrollView addSubview:btn];
+        
+            
+            
+            
+            
+        }
+
+    
+    
+    
+    
+    }
+    
+   
+    myScrollView.delegate  = self;
+    [self.view addSubview:myScrollView];
+    
+   
+
+    self.pageCon  = [[UIPageControl alloc] init];
+    self.pageCon.frame  = CGRectMake(WIDTH / 3, HEIGHT*15/16, WIDTH/3, HEIGHT /16);
+    self.pageCon.numberOfPages  = 5;
+    self.pageCon.pageIndicatorTintColor  = [UIColor whiteColor];
+    self.pageCon.currentPageIndicatorTintColor  = [UIColor redColor];
+    [self.view  addSubview: self.pageCon];
+
+
+}
+# pragma   mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;{
+    self.pageCon.currentPage  =scrollView.contentOffset.x /[UIScreen mainScreen].bounds.size.width;
+
+
+
+
+}
+
+
+
+//点击按钮保存数据并进入主页
+# pragma   mark - 进入主页
+- (void)go:(UIButton  *)btn{
+
+    NSUserDefaults   * userD = [NSUserDefaults standardUserDefaults];
+    
+    [userD setBool:YES forKey:@"notFirst"];
+    self.view.window.rootViewController  = [[ViewController alloc] init];
+}
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>073D8707-12D9-47C5-B4E4-F593AB32A063</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>第一次进入应用的引导页</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My    引导页（scrollView  and PageControl）  Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

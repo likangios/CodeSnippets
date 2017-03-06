@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>MYPickerView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> NSArray *heNanCitys = [[NSArray alloc] initWithObjects:@"郑州市",@"洛阳",@"开封",@"新郑", nil];
+    NSArray *heBeiCitys = [[NSArray alloc] initWithObjects:@"邯郸市",@"石家庄",@"秦皇岛", nil];
+    NSArray *deZhouCitys = [[NSArray alloc] initWithObjects:@"休斯顿",@"华盛顿",@"洛杉矶", nil];
+    NSArray *jiaZhouCitys = [[NSArray alloc] initWithObjects:@"纽约",@"芝加哥",@"夏威夷", nil];
+    
+    NSDictionary *chinaProvinceDic = [[NSDictionary alloc] initWithObjectsAndKeys:heNanCitys,@"河南",heBeiCitys,@"河北",nil];
+    
+    NSDictionary *usaProvinceDic = [[NSDictionary alloc] initWithObjectsAndKeys:deZhouCitys,@"德州" ,jiaZhouCitys,@"加州", nil];
+
+    _countryArray = [[NSArray alloc] initWithObjects:chinaProvinceDic,usaProvinceDic,nil];
+    
+    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(10, 50, 300, 100)];
+    pickerView.dataSource = self;
+    pickerView.delegate = self;
+    [self.view addSubview:pickerView];
+  
+#pragma mark - 
+#pragma mark UIPickerViewDataSource
+
+//返回pickerview有多少列
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 3;
+}
+
+//返回对应的列有多少行
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if (component == 0)
+    {
+        return [_countryArray count];
+    }
+    else if(component == 1)
+    {
+        
+        //获得第0列选择的是哪个国家
+        int countryIndex = [pickerView selectedRowInComponent:0];
+        
+        //获得对应国家的省份
+        NSDictionary *provincesDic = [_countryArray objectAtIndex:countryIndex];
+       
+        //字典的count方法是获得字典有多少个键值对
+        return [provincesDic count];
+        
+    }
+    else if(component == 2)
+    {
+        //获得第0列选择的是哪个国家
+        int countryIndex = [pickerView selectedRowInComponent:0];
+        //获得对应国家的省份列表
+        NSDictionary *provincesDic = [_countryArray objectAtIndex:countryIndex];
+        
+//     通过第一列的索引获得选择的哪个省
+        int provinceIndex = [pickerView selectedRowInComponent:1];
+        
+        NSArray *cityArrValues = [provincesDic allValues];
+        
+        NSArray *cityArray = [cityArrValues objectAtIndex:provinceIndex];
+        
+        return [cityArray count];
+        
+    }
+    
+    return 0;
+}
+
+#pragma mark -
+#pragma mark UIPickerViewDelegate
+
+//返回每一个区每一行的标题
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+
+    if (component == 0)
+    {
+        return row == 0 ? @"中国" : @"美国";
+    }
+    else if(component == 1)
+    {
+        int index = [pickerView selectedRowInComponent:0];
+        
+        //{河南：[郑州，洛阳]，河北：[秦皇岛，石家庄]}
+        NSDictionary *dic = [_countryArray objectAtIndex:index];
+        //{河南，河北}
+        NSArray *allCityName = [dic allKeys];
+        
+        return [allCityName objectAtIndex:row];
+    }
+    else if(component == 2)
+    {
+        int countryIndex = [pickerView selectedRowInComponent:0];
+        
+        //获得对应国家的省份
+        //{河南：[郑州，洛阳]，河北：[秦皇岛，石家庄]}
+        NSDictionary *provincesDic = [_countryArray objectAtIndex:countryIndex];
+        //获得选择的哪个省
+        int provinceIndex = [pickerView selectedRowInComponent:1];
+        
+        //[[郑州，洛阳] , [秦皇岛，石家庄]]
+        NSArray *citysArr = [provincesDic allValues];
+        
+        //[郑州，洛阳]
+        NSArray *cityArray = [citysArr objectAtIndex:provinceIndex ];
+        
+        return [cityArray objectAtIndex:row];
+        
+    }
+    
+    return nil;
+    
+}
+
+//当picker滚动的时候，会调用此方法，通知你picker滑到了第几行，第几列
+//component，row 分别代表pickerview滑动到了第几列的第几行
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    NSLog(@"列   %d   行   %d",component,row);
+    
+    
+    //reload 重新加载
+    //执行完这句代码之后，pickerview的数据源方法和对应的代理方法会重新再次调用，来确定pickerview有几列，几行，每一行中的标题是什么
+    
+    //当picker滑动之后，我们需要把picker整个的数据更新一遍，比如选择了中国，后面两列要对应的更新到中国的省，市数据中
+    [pickerView reloadAllComponents];
+    if (component == 0)
+    {
+        [pickerView selectRow:0 inComponent:1 animated:YES];
+        [pickerView selectRow:0 inComponent:2 animated:YES];
+    }
+    else if(component == 1)
+    {
+        [pickerView selectRow:0 inComponent:2 animated:YES];
+    }
+    
+}
+
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>71CB9964-030B-4EA8-A3D2-256444DFC3FC</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>三级联动的pickerview</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My   PickerView  Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

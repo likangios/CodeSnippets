@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>MYTextField</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> //系统给我们提供用于显示输入框的类
+UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(&lt;#20, 20, 150, 40#&gt;)];
+    //border 边框  style 样式
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    //clear 清除   button 按钮  mode 模式
+    textField.clearButtonMode = UITextFieldViewModeAlways;
+    textField.text = @"123";
+    
+    
+    //placeholder 占位符
+    textField.placeholder = @"请输入你的用户名";
+
+    [self.window addSubview:textField];
+    
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1B40FD4B-C52F-409E-9045-D10BF3EDE86F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>创建一个textField</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My  textField  Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
