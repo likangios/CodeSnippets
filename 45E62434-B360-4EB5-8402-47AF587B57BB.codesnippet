@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>MainGCD</string>
+	<string>sdk</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>dispatch_async(dispatch_get_main_queue(), ^{
-    &lt;#code#&gt;
-});</string>
+	<string>#pragma mark sdk修改</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>6603F212-C13E-4FD5-A62F-33EB0656AF4C</string>
+	<string>45E62434-B360-4EB5-8402-47AF587B57BB</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>MainGCD</string>
+	<string>sdk</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>MainGCD</string>
+	<string>sdk</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

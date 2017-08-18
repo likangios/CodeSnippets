@@ -3,23 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>MainGCD</string>
+	<string>doubo_anchor</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>dispatch_async(dispatch_get_main_queue(), ^{
-    &lt;#code#&gt;
-});</string>
+	<string>#ifdef DOUBO_ANCHOR
+#else
+        &lt;##&gt;
+#endif
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>6603F212-C13E-4FD5-A62F-33EB0656AF4C</string>
+	<string>4FC065BE-B4BA-4F98-8A9D-DA0DE68541A2</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>MainGCD</string>
+	<string>doubo_anchor</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>MainGCD</string>
+	<string>doubo_anchor</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

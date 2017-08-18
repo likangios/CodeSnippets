@@ -3,23 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>MainGCD</string>
+	<string>event</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>dispatch_async(dispatch_get_main_queue(), ^{
-    &lt;#code#&gt;
-});</string>
+	<string>[MobClickManager event:@"&lt;#100002#&gt;"];
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>6603F212-C13E-4FD5-A62F-33EB0656AF4C</string>
+	<string>472E4214-AAC3-45F5-97D4-C452C8437F99</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>MainGCD</string>
+	<string>MobClickManager</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>MainGCD</string>
+	<string>MobClickManager</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
